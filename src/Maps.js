@@ -23,7 +23,7 @@ class Maps extends Component {
         return (
             <div className="Maps">
                 <img
-                    src="http://www.doomsteaddiner.net/blog/wp-content/uploads/2015/10/reddit-logo.png"
+                    src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Street_View_logo.png"
                     alt="Maps"
                     className="logo"
                 />

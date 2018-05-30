@@ -10,16 +10,14 @@ class MapsFinder extends Component {
             locat: ''
         }
         console.log(props)
-        if (this.props.clicked === true)
-            this.fetchLocData()
+        // if (this.props.clicked === true)
+        this.fetchLocData()
     }
 
     componentWillReceiveProps = (newProps) => {
-        if (newProps.clicked === true) {
-            const locationChanged = newProps.location !== this.props.location
-            if (locationChanged) {
-                this.fetchLocData(newProps)
-            }
+        const locationChanged = newProps.location !== this.props.location
+        if (locationChanged) {
+            this.fetchLocData(newProps)
         }
         console.log(this.props)
     }
@@ -27,15 +25,17 @@ class MapsFinder extends Component {
     fetchLocData = (props) => {
         this.setState({
             locat: `https://maps.googleapis.com/maps/api/streetview?size=400x400&location=${this.props.match.params.loc}
-        &fov=90&heading=235&pitch=10
+        &fov=90&pitch=10
         &key=AIzaSyACAxgJOrpJExzeIjj9py6COaZaKBGTgrc`})
     }
     render() {
-
-        console.log(this.state.locat)
+        // debugger
+        console.log(this.props)
+        // const curr = this.props.location.pathname.url
         return (
             <div className="MapsFinder">
                 <img src={this.state.locat} />
+                <h3>{this.props.location.pathname.split('/')[2]}</h3>
             </div>
         )
     }
